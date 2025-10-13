@@ -1,0 +1,43 @@
+<div class="registro__container">
+    <aside>
+        <img src="/registro.jpg" alt="Imagem de lado do cadastro">
+    </aside>
+
+    <main>
+        <header>
+            <img src="/logo.png" alt="Imagem da logo">
+        </header>
+
+        <h2>Realize já seu cadastro!</h2>
+
+        <form method="post">
+            <div class="registro__campo">
+                <label>Nome Completo</label>
+
+                <input type="text" required maxlength="30">
+            </div><!--registro__campo-->
+
+            <div class="registro__campo">
+                <label>Email</label>
+
+                <input type="email" required maxlength="64">
+            </div><!--registro__campo-->
+            
+            <div class="registro__campo">
+                <label>Senha</label>
+
+                <input type="password" required maxlength="32">
+            </div><!--registro__campo-->
+            
+            <div class="registro__campo">
+                <label>Confirmar Senha</label>
+
+                <input type="password" required maxlength="32">
+            </div><!--registro__campo-->
+
+            <button type="submit">ENVIAR</button>
+        </form>
+
+        <p>Já tem conta? Clique <a [routerLink]="['/iniciar-sessao']">aqui</a></p>
+    </main>
+</div><!--registro__container-->

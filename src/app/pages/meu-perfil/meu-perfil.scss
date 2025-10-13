@@ -1,0 +1,254 @@
+.perfil__container{
+    padding: 40px 60px;
+}
+
+main{
+    margin-top: 180px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.foto__perfil__campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.foto__perfil__campo > label:first-child{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.foto__perfil__campo > label > svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.foto__perfil__campo > img{
+    width: 280px;
+    height: 280px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+}
+
+.foto__perfil__campo:has( > label > svg:hover) > img{
+    filter: brightness(0.6);
+}
+
+.foto__perfil__campo > input{
+    display: none;
+}
+
+.perfil__grupo__campos{
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil__campo__linha{
+    display: flex;
+    flex-direction: row;
+}
+
+.perfil__campo{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-bottom: 35px;
+}
+
+.perfil__campo > label{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.perfil__campo > input{
+    height: 40px;
+    padding: 0 15px;
+    outline: 0;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.perfil__campo__linha:nth-child(1) > .perfil__campo:nth-child(1) > input{
+    width: 35dvw;
+}
+
+.perfil__campo__linha:nth-child(1) > .perfil__campo:nth-child(2) > input{
+    width: 25dvw;
+}
+
+.perfil__campo__linha:nth-child(2) > .perfil__campo:nth-child(1) > input{
+    width: 35dvw;
+}
+
+.perfil__campo__linha:nth-child(2) > .perfil__campo:nth-child(2) > input{
+    width: 20dvw;
+}
+
+.perfil__campo__linha:nth-child(3) > .perfil__campo:nth-child(1) > input{
+    width: 15dvw;
+}
+
+.perfil__campo__linha:nth-child(3) > .perfil__campo:nth-child(2) > input{
+    width: 30dvw;
+}
+
+form > button{
+    margin-top: 50px;
+    position: absolute;
+    bottom: -150px;
+    right: 0px;
+    width: 250px;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+form > button:active{
+    bottom: -151px;
+}
+
+/*media query*/
+@media (width < 1150px) {
+    .perfil__campo__linha{
+        flex-direction: column;
+    }
+
+    .perfil__campo__linha:nth-child(1) > .perfil__campo:nth-child(1) > input,
+    .perfil__campo__linha:nth-child(1) > .perfil__campo:nth-child(2) > input,
+    .perfil__campo__linha:nth-child(2) > .perfil__campo:nth-child(1) > input,
+    .perfil__campo__linha:nth-child(2) > .perfil__campo:nth-child(2) > input,
+    .perfil__campo__linha:nth-child(3) > .perfil__campo:nth-child(1) > input,
+    .perfil__campo__linha:nth-child(3) > .perfil__campo:nth-child(2) > input{
+        width: 50dvw;
+    }
+
+    form > button{
+        bottom: 30px;
+    }
+
+    form > button:active{
+        bottom: 31px;
+    }
+}
+
+@media (width < 890px) {
+    form{
+        padding-bottom: 100px;
+    }
+
+    .foto__perfil__campo{
+        position: relative;
+    }
+
+    .foto__perfil__campo > label:first-child{
+        font-size: 17px;
+    }
+
+    .perfil__grupo__campos{
+        margin-top: 50px;
+    }
+
+    .perfil__campo > label{
+        font-size: 17px;
+    }
+
+    .perfil__campo__linha:nth-child(1) > .perfil__campo:nth-child(1) > input,
+    .perfil__campo__linha:nth-child(1) > .perfil__campo:nth-child(2) > input,
+    .perfil__campo__linha:nth-child(2) > .perfil__campo:nth-child(1) > input,
+    .perfil__campo__linha:nth-child(2) > .perfil__campo:nth-child(2) > input,
+    .perfil__campo__linha:nth-child(3) > .perfil__campo:nth-child(1) > input,
+    .perfil__campo__linha:nth-child(3) > .perfil__campo:nth-child(2) > input{
+        width: 100%;
+    }
+
+    form > button{
+        bottom: 0px;
+    }
+
+    form > button:active{
+        bottom: -1px;
+    }
+}
+
+@media (width < 490px) {
+    .perfil__container{
+        padding: 40px;
+    }
+
+    main{
+        margin-top: 100px;
+    }
+
+    .foto__perfil__campo > label:first-child{
+        font-size: 16px;
+    }
+
+    .foto__perfil__campo > img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .perfil__campo{
+        margin-bottom: 30px;
+    }
+
+    .perfil__campo > label{
+        font-size: 16px;
+    }
+
+    form > button{
+        margin-top: 40px;
+        position: relative;
+        bottom: 0px;
+        right: 0px;
+        width: 95%;
+    }
+
+    form > button:active{
+        bottom: -1px;
+    }
+}
+
+@media (width < 390px) {
+    .perfil__container{
+        padding: 40px 20px;
+    }
+
+    .foto__perfil__campo > label:first-child{
+        font-size: 15px;
+    }
+
+    .foto__perfil__campo > img{
+        width: 180px;
+        height: 180px;
+    }
+
+    .perfil__campo{
+        margin-bottom: 25px;
+    }
+
+    .perfil__campo > label{
+        font-size: 15px;
+    }
+}

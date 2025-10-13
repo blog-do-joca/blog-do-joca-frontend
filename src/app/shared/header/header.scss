@@ -1,0 +1,308 @@
+/*key frames*/
+@keyframes balancar__logo {
+    0%{
+        rotate: 10deg;
+    }25%{
+        rotate: -10deg;
+    }50%{
+        rotate: 10deg;
+    }75%{
+        rotate: -10deg;
+    }100%{
+        rotate: 10deg;
+    }
+}
+
+.header__container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo > a > img{
+    width: 199px;
+    height: 88px;
+    position: relative;
+    top: -20px;
+    animation-name: balancar__logo;
+    animation-duration: 5s;
+    animation-delay: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.buscador{
+    position: relative;
+}
+
+.buscador > input{
+    width: 550px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid #444;
+    outline: 0;
+    padding: 0 15px;
+}
+
+.buscador > input:active{
+    position: relative;
+    top: 1px;
+}
+
+.buscador > input:focus{
+    border: 2px solid #0000ff;
+}
+
+.buscador > svg{
+    position: absolute;
+    top: 6px;
+    right: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.buscador > svg:active{
+    top: 7px;
+}
+
+.menu__hamburguer{
+    cursor: pointer;
+    z-index: 999;
+    position: relative;
+}
+
+.linha__1,
+.linha__2,
+.linha__3{
+    background-color: #000;
+    height: 6px;
+    width: 56px;
+}
+
+.linha__1,
+.linha__2{
+    margin-bottom: 10px;
+}
+
+.menu__wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 900;
+}
+
+.menu__wrapper > nav{
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    position: fixed;
+    right: 40px;
+    top: 200px;
+}
+
+.menu__wrapper > nav > .menu__wrapper__grupo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.menu__wrapper > nav > .menu__wrapper__grupo > svg{
+    width: 40px;
+    height: 40px;
+}
+
+.menu__wrapper > nav > .menu__wrapper__grupo > a{
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8f8f8;
+    margin-bottom: 0px;
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.4s ease-in-out;
+    margin-left: 8px;
+}
+
+.menu__wrapper > nav > .menu__wrapper__grupo:hover > a,
+.menu__wrapper > nav > .menu__wrapper__grupo:hover > svg{
+    color: #d9d9d963;
+}
+
+@media (width < 1000px) {
+    logo > img{
+        width: 169px;
+        height: 78px;
+        top: -10px;
+    }
+
+    .buscador > input{
+        width: 400px;
+        height: 40px;
+    }
+
+    .linha__1,
+    .linha__2,
+    .linha__3{
+        height: 5px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > svg{
+        width: 35px;
+        height: 35px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > a{
+        font-size: 21px;
+        font-weight: 700;
+    }
+}
+
+@media (width < 800px) {
+    .logo > a > img{
+        width: 139px;
+        height: 68px;
+        top: -5px;
+    }
+
+    header > .buscador > input{
+        width: 300px;
+    }
+}
+
+@media (width < 760px) {
+    .buscador > input{
+        width: 270px;
+    }
+}
+
+@media (width < 620px) {
+    .logo > a > img{
+        width: 100px;
+        height: 48px;
+        top: -5pxpx;
+    }
+
+    .buscador > input{
+        width: 250px;
+    }
+
+    .buscador > svg{
+        top: 8px;
+        right: 20px;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+    }
+
+    .buscador > svg:active{
+        top: 9px;
+    }
+
+    .linha__1{
+        height: 4px;
+        width: 36px;
+        margin-bottom: 6px;
+    }
+
+    .linha__2{
+        height: 3px;
+        width: 32px;
+        margin-bottom: 6px;
+    }
+
+    .linha__3{
+        height: 4px;
+        width: 36px;
+    }
+
+    .menu__wrapper > nav{
+        top: 150px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > svg{
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > a{
+        font-size: 18px;
+    }
+}
+
+@media (width < 470px) {
+    .logo > a > img{
+        width: 100px;
+        height: 48px;
+        top: -5pxpx;
+    }
+
+    .buscador{
+        display: none;
+    }
+
+    .buscador > svg{
+        top: 8px;
+        right: 20px;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+    }
+
+    .buscador > svg:active{
+        top: 9px;
+    }
+
+    .linha__1{
+        height: 4px;
+        width: 36px;
+        margin-bottom: 6px;
+    }
+
+    .linha__2{
+        height: 3px;
+        width: 32px;
+        margin-bottom: 6px;
+    }
+
+    .linha__3{
+        height: 4px;
+        width: 36px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > svg{
+        width: 25px;
+        height: 25px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > a{
+        font-size: 15px;
+    }
+}
+
+@media (width < 360px) {
+    .menu__wrapper > nav > .menu__wrapper__grupo > svg{
+        width: 22px;
+        height: 22px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > a{
+        font-size: 13px;
+    }
+}
+
+@media (width < 300px){
+    .menu__wrapper > nav > .menu__wrapper__grupo > svg{
+        width: 19px;
+        height: 19px;
+    }
+
+    .menu__wrapper > nav > .menu__wrapper__grupo > a{
+        font-size: 11px;
+    }
+}

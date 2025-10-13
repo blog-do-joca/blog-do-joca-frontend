@@ -1,0 +1,152 @@
+.registro__container{
+    display: flex;
+    flex-direction: row;
+    height: 100dvh;
+    overflow-y: hidden;
+}
+
+main{
+   width: 40%;
+   height: 100%;
+}
+
+header{
+    padding: 30px 50px;
+}
+
+header > img{
+    width: 160px;
+    height: 70px;
+}
+
+main > h2{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 60px;
+}
+
+form,
+.registro__campo{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    max-width: 450px;
+    height: auto;
+    position: relative;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.registro__campo > label{
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.registro__campo > input{
+    width: 450px;
+    max-width: 100%;
+    height: 40px;
+    border: 1px solid #333;
+    outline: 0;
+    border-radius: 6px;
+    padding: 0 15px;
+    transition: all 0.4s ease-in-out;
+}
+
+.registro__campo > input:focus{
+    border: 1px solid #0000ff;
+}
+
+.registro__campo:nth-child(1),
+.registro__campo:nth-child(2),
+.registro__campo:nth-child(3){
+    margin-bottom: 25px;
+}
+
+form > button{
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    border: 0;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 30px;
+    background-color: #0000ff;
+    color: #f8f8f8;
+    cursor: pointer;
+}
+
+form > button:active{
+    position: relative;
+    top: 1px;
+}
+
+main > a,
+main > p{
+    position: relative;
+    top: 80px;
+    text-align: center;
+}
+
+main > p:first-of-type{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+aside{
+    width: 60%;
+    height: 100%;
+}
+
+aside > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (width < 1400px) {
+    main, aside{
+        width: 50%;
+    }
+}
+
+@media (width < 1000px) {
+    main{
+        width: 60%;
+    }
+
+    aside{
+        width: 40%;
+    }
+}
+
+@media (width < 830px) {
+    main{
+        width: 100%;
+    }
+
+    aside{
+        display: none;
+    }
+}
+
+@media (width < 530px) {
+    main > h2{
+        font-size: 24px;
+    }
+
+    form{
+        width: 90%;
+    }
+}
+
+@media (width < 390px) {
+    form{
+        width: 90%;
+    }
+}

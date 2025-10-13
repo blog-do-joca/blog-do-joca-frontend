@@ -1,0 +1,139 @@
+<div class="header__container">
+    <div class="logo">
+        <a [routerLink]="['/home']">
+            <img src="/logo.png" alt="logo">
+        </a>
+    </div><!--logo-->
+
+    <div class="buscador">
+        <input type="text" placeholder="Pesquise algo..." [(ngModel)]="pesquisaItem">
+
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" (click)="pesquisarPeloTipoOuPalavraChave()">
+            <rect width="30" height="30" fill="url(#pattern0_18_389)"/>
+            <defs>
+            <pattern id="pattern0_18_389" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlink:href="#image0_18_389" transform="scale(0.01)"/>
+            </pattern>
+            <image id="image0_18_389" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFO0lEQVR4nO2dW4iVVRTHfzPTzZAedI5TZEQy3WRMkHoQEsLngtSkmzg+lNEdldQiekiinu2CUg8lBUVUQ/aSY6VEEKQITdl0YzIq7GJSWZYaJzasgWE6e+3vnDlzvr3OWT/YjzOz1vf/9rf32mutPeA4juM4juM4juM4juM4zlQ4E1gAXA+sBdYBm2TcAawClgCVsg1tV2YDNwLbgVHgX6BacBwBdopoC8t2xDKnA8uAIeBEHQJUE+MgsBk4v2wHrXAGsBr4sokiVGuMIPIO4NKyHc6ZW4EfplmI6qRxCtgGzCrb+ZzoB95tsRDVSeMnmZkdT1isf2vwIf4NfA3sA/YCHwGfAj9PQZgXgZl0ID3A1jof1ufAk8ByYJ78jhjhE3Q18CAwXOfGYFRmbUfFEa8WfDjHgKeAq6b4N3uBe2UGFfm7h4FFdIgYuwo8kL+Ax6YhuOsGVhQU5ndgMW1MT8GZ8RZwUQvinAdkBmq2/ALMp01JrRnHgbtabNPlwEjCrm+Bc2nD3VRq2znVdaJRzgbeSNi3Wz53bUF/Ymt7CLgkg8/pswlRHqFNeEdxMsQMl5EHXcDziq0ngSswzi2JNaOsz5R2lrZHsXmvCGeSGcD3inOtXsCLch7wo2J3WA9Ncndia5sz1ym2f2xxloR9/jdK0DfdcUYzGFJECdlKUyxXnAkRuAXmyUJey4dwPmaK2Nv1p7Fc9wsRP0Ia+QKM0KucroaDQksMKDN9I0a4SXHiSuyxP+JLSKqZYLuSz7DIeiVBFrb22TMacSAklywyoMz4pWTOWVI4UMv4kIewSJcSKN5H5ixQ3iYLsUeMtyM+PY3R+ON4IgduNZczTObcFjE8FL5ZZn3Er7ADy5p1Vg1PcHvEry/InIcjhr+PbW6O+BUqLbNmY8TwD7HNYMSvcICaNXdGDA9lN5a5x6pfq5RUrWW2RPz6gMxZosQhlivMX1FqgbOmoggSam2tMhLxKcyc7DkSMT4UPlukV2mjW4kBdlqNaiPcoMz6uRiOak8Yyxam1o8xjLBQeaNCS4AlzpGijFq+hPMtMxxU9u2WamQ3WM6FTGSz4sgKQ70s3ykRuqnT69AH/k/EmU+kbsvyS/UQBnlOcSg0y+T+Qv0RsT00+czBIBcr6dxj0iyTI92JtrsnMMw2xbERaZax9Kn6Ve5eMcss6Y6KOfgmcBp5FVmfUuwNtw+ZZ7XiYFU6l3LYCl+jxBzjSbYc7GwKOxKivCYlRGWxTOqOY/YdNV418z9mKgV042OPNMu0km5ZM1J3cK2hDemXGxI0x0NB2rUt3NruStgzMXYyudVNsajgZTND0p8xXRH4JiXO6DhRFis5k4njpPRnhNraZh0Ubkj0PXasKPPlhoSiD2KfHOsP1NnfN1vyGS8ndlAuilxXsbuBB3JYam23ikhrJXM3KI2mWySHMVLnhZnjgd8aeegdKUqP3JDQzIsuqw2OEGdcKHbN6WRRkKs1hksS4ihwf42gryIt0NrPflbCVr1ldElTfuohVJs0wgHn44mzqaIzpY82pkv6wIcbWAOqBcYhyWcU/dy4KBOYK/XC70lPX6MijMkmYGmDmT4XpQYz5IGGNrJnJMoO2+GvZOc1Jrn8UN75kuy2VjaxVMdFyZBKgTVutJ0X+hypuCj5UXFR8hQldYGmi9JiwkLvomSGi5IhLkqGuCgZ4qJkSF+BiP5AyVU2HUdfAVH8P/qUIIr2bzEebbVBDqoooTjPKUmUA5PEeL2dylKtpg4G5TMVZoaL4TiO4ziO4ziO4ziO49DO/AfsMOI36QFK4QAAAABJRU5ErkJggg=="/>
+            </defs>
+        </svg>
+    </div><!--buscador-->
+
+    <div class="menu">
+        <menu>
+            <div class="menu__hamburguer" (click)="transformarMenu()">
+                <div class="linha__1" id="linha__1"></div>
+                <div class="linha__2" id="linha__2"></div>
+                <div class="linha__3" id="linha__3"></div>
+            </div><!--menu__hamburguer-->
+
+            @if (estaAbertoMenu) {
+                <div class="menu__wrapper">
+                    <nav>
+                        @if (!usuarioLogado) {
+                            <div class="menu__wrapper__grupo">
+
+                                <a [routerLink]="['/iniciar-sessao']">Iniciar sessão</a>
+                            </div><!--menu__wrapper__grupo-->
+                            
+                            <div class="menu__wrapper__grupo">
+                                
+                                <a [routerLink]="['/cadastro']">Cadastre-se</a>
+                            </div><!--menu__wrapper__grupo-->
+                        } @else {
+                            <div class="menu__wrapper__grupo">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="40" height="40" fill="url(#pattern0_60_5)"/>
+                                    <defs>
+                                    <pattern id="pattern0_60_5" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_60_5" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_60_5" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADXklEQVR4nO3dSYgdVRQG4JcoDtkY4wQaJS50FRV0o6iI2LoyiGi2blWwI+oiSMAERHAVJ4iiRNCggsMu6MJIRAgIBhXErROKA4rgFMd8cuGCQUi6k+6uc+r1+aA2j/eq7zl/P6q67q3qyaSUUkoppZRSSimllLKksA43Yhab+zbbX1sXPb5lARfjEXxmbp9iOy6KHve0BvE6Djp67TO7sT66jtHD8XgIf1m4P/Fg22d0XaOE1Xjb4nsLp0TXNypYgw8tnQ9wanSdo4ATsc/SewcnRNebHh43nO3R9aaGq47xTOpY/YMroutOC+8Z3rvRdaeEG8SZia4/HbwSGMhL0fWngpNxIDCQX9vZXXQf0sC14l0T3Yc0cE90GtgU3Yc08ER0Gngsug9p4PnoNPBcdB/SwIvRaeCF6D6kgaej08BT0X1IAw9Ep4Et0X1IA7dEp4Gbo/uQBs4c+KLi/7WffUZ0H1JpF/nE2Rddfzq4MzCQ26PrTwer8G1AGN+0a2nR9aeEuwICuSO67rRw3MDHkjZ3vzK67tRwPn4YIIzvcV50vaOAK/HbEs9/1Fz60cDl/bd4sf2Iq6PrGyVc2Be1LZb3cUF0XdOwcG4LfllAED/j/loYt4hwOrbN81aEQ29J2IrTosc/tbACl+I+PIu92N+3vf21e/t7VkSPt5RSSimllFJKKaWUkmNVyiXY2JcMtaf/PIwd2NW3Hf21zf09t/bPrIoe/2hhZXuCT2/ok9iDLxa4svFg38eevs+27/W1wOHwD5i5DHfj5SWatj2cn/Bmn2eZwUmT5ahNGOE2vLbAmcDF1sbyah/bmskyWHM1078Ff8jv7/7t2ThVU784qx9kvzJe3/WThbWTsWqL0LBzJN+G+Wq1PINzJ2PRnkOFR/G76XWgP89x9SQzbMCXlo+v2wnAJOkfbRnupI2yK80tDf1Y0VYELnf7w48tOAefRHcikc/DQukH74+jO5DQRyEH+ySPw8hq59BhXB9dcXLtYuZ1QwbyRnTFI7B7qDDW9us85chaj84eIpCb5hhI+c+GIQLZdMgPLEc2O0Qg7QaYMj9bhwikza6V+dlWgeRSgSRTgSRTgSRTgSRTgSRTgSRTgSzHQGb6GqXazLnVP4oppZRSSimllFJKKZNp9S/PbXBdP2BDigAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+
+                                <a [routerLink]="['/meu-perfil']">Meu perfil</a>
+                            </div><!--menu__wrapper__grupo-->
+
+                            <div class="menu__wrapper__grupo">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="40" height="40" fill="url(#pattern0_60_7)"/>
+                                    <defs>
+                                    <pattern id="pattern0_60_7" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_60_7" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_60_7" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEM0lEQVR4nO3dz4uVVRzH8WOmYqaJqf1QoVbaooVommP0HyRBISoImm0SyUXQpFYIidbCHxuzKSoHWxS2cKEo6ixGayEUZVoqJiIpKiJS/mxy5i2H+ZYt7uh9Zp5zvuc8z/cFsxq48/3ezzz3uff8us4ZY4wxxhhjjDHGGGNMyoBhwGzgdeAjoA34GmgHNgNvAy8B4yPWNB6YA7RKDe1SU5vU6Gtt8bW7KgAeAZYA+4AbNKcH+AlYCUwKUNMkYBXws/ytZlwH9gKvAaNcboCJwCZpZCC6gE/KCEaCaJPHHIhrwEZggsvkZem9AldDs24BG4CH+lHTCHkC/WOU6bpcaUNdioBngCOEdQyYVqCm6cDxwDUdBqa4lAAvy6UcQxewtImalpXw8tSsq/7NgUsBsBi4TXxrgUEN6hkk75Bi+wdYpJPC3ebnAt3o2dwgjC2K9fh/zFe1wpgF/I2+Nf+ryV812vybhxmxwxgDnCEd84EFpOM0MDpmIF+QlmsR31Q067NYYbQU+IRbZ93AzBiBdGh3mpE9ocOYod1hhqaFDMSPBZliPg4VxlDgSsFiDFwGhoQI5EXtzjLWEiKQ97W7ytiqEIF8q91Vxr4JEUjoofUqOxwikEvaXWXsYohAyp5xq5MbFkhaboUI5Lx2Vxk7FyKQX7W7ytiREIEc1O4qY50hAtmm3VXG2kMEsly7q4wtCxGIX5dr+uf5EIGMUFrukzu/Nmx46YFIKJ3a3WWoI0gYEsib2t1laGnIQCbYAofCCx2eDBaIhPJ9sZpqrTNoGBLIQu0uMzI/RiBDgD+0O83A2SBz6X2E4jeqmHtrjRKGBDJW9kSYxv7y65+jBSKhrO6jGAPvRg1DAnnY5kgaOudHNaIHIqG80bimWluiEoYE8qDs9za9fgQGqwUioTxng47/7TEMt7C6CGB9b021ts6lwm/oB05RXyeCDbEP8KUr1r7wlHQFmYAqA7CC+nnLpQp4QE7NqYvdjQ4vSArwWE0GH88A41wOgKklHM2UMn/a0XSXE3/EREVnF3uAeS5HiRx1UbYPXK7kMJgvqY6vkr+JNznDuIf87U/29LiigJHAD+TrkNqQeuBZxhz3Kf4CPOqqSM7J/Y28xqged1UmR8jmMBB5Mvgit1QATyT+8nXM/+O4OpFT6fzNMsVZv3GujuQo8u9IxwFfk6szmdxK4XNKh19Jo/18JEGOftquGMaOynwDQskrWD5XCONT9ZUiKaN3c2l3pFHb1dr9ZgF4JfB8ys0oWwWqBJgJXAgQhj/V6AXt/rIEPF3ykR5Hgae0+8oaMBrYVUIYO2v/GaPkia7Wft7s/c37Q78iRruPyqH3W9z+LBDGVbWvj6gLYLIM/t3P78Cz2vXWaWByWx+rWnrkd3G3lBn379XyDrBVfvx9ZrJ2XcYYY4wxxhhjjDHGGONiuwPk2rVYQ4+bhQAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+
+                                <a [routerLink]="['/favoritos']">Favoritos</a>
+                            </div><!--menu__wrapper__grupo-->
+
+                            @if (usuarioLogado && nomeUsuario === "Joalisson") {
+                                <div class="menu__wrapper__grupo">
+                                    <a href="">Criar artigo</a>
+                                </div><!--menu__wrapper__grupo-->
+                            }
+                            
+                            <div class="menu__wrapper__grupo">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="100" height="100" fill="url(#pattern0_69_17)"/>
+                                    <defs>
+                                    <pattern id="pattern0_69_17" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_69_17" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_69_17" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFCUlEQVR4nO2dT0g0dRjHv6aoKAj+KwJNhVLZAsFLqQiitKJgpiBe66AH9dYhIYn3tSLqpKiR2EGQIPzz2uU1iQ6F51XPpcLiX0QPKvqmr/bEb1KbnR3Xcd2deWbn+cBzcfC33+f32ZkdZvc3AwiCIAiCIAju5i0AnwP4GcBzAGMA3gc//NfZnl9nVZnfRALxCoCvAbwEQCb1O4DXnQ6J/zL8cUfGCwBfXffier6/o0l9/Qkgx8GMuQD+spDzO7icZgtN3tQPDuacfEBOdUhzLb/qm0lLS6O+vj4aHBykoqIiY6MvHdpL8oyH0+LiYi1jb28vpaamGnMuwqUkAfhb38zExATdsLW1RRkZGcZmP3Ag54f6DJmZmbS9vX2bc3x83JjxxXVvrHgbwCcAPo1QT427u5Kgp6qqytjss3vGjEc902eorq4Oybi5uWl22Hp6z5hqbnx2yXjH+M63Wvv7+yHN1tXVPXgMxLlUJj0qc5RjvbBLinoHRBXSY0Loeq7izhMRAqv1xHYhBQUF1NHREVatra1hAXd3d0Oara2tDdleWVlpOlY8S72mPoPKpEdlNvahejMbS82F40JUEDMuLy8pOTk5JOD8/Pzt9qOjI8rOzg7ZPjMzQ3YzPT0dkiEnJ4eOj49vt8/NzYVsT0lJ0XozQ80FWyFmZ1H5+fk0NjZGs7Oz2tmMfltSUpJ2RmM3wWBQe219lpqaGi3j6Ogo5eXlhW27C/ZCJicnLR9vW1payCmam5st55yamnKvELVrNzY23ttkbm4ubWxskFOsra1ph6r7cjY1NdHV1ZV7hShOTk6ora3tzibVZYqVlRVymuXlZbPLObfV3t6u9RIJVwi5YWFhgTo7O6m8vJwKCwupoaGBhoeH6ezsjLhwenpKQ0NDVF9fr2VUWVXmxcVFS//vKiFeoEOE8EKEMEOEMEOEMEOEMIOFkKysLPL5fFI+nzYXjguRQqQSIeBVIgReF6IusavvFKSmzX60IWdZ5PWzLBHyPyKEGSKEGSKEGSKEGSKEGSKEGSKEGSIkRlxcXFAgEKDDw8NHjSNCYsDOzg5VVFRovajL50tLS1GPJUJiIKOsrCzs91fRIkJiLENVT09P1GOKkBjLUH8zrmF5CCIkCvb29rSvW40ySktLQxZ7RoMIYSRDIUIYyVCIEEYyElLI+fk5dXV1UUlJCXV3d2u/Ro/nB7jaFksSTsjIyEhIQ2pZwGOk2CkjIYUMDAyETV60UuyWkZBCgsGgtrztsVKckJGQQhSrq6thK19v1o/ft6TMzg9wzwh5jBQnZSS0kGikOC0j4YU8RAoHGZ4QYkUKFxmeEaJQ69jNzr7UnXucOJsirwuJtKdw2DM8KcSKFCdleFJIJClOy/CsEDMpHGR4WohifX1du69uf38/HRwcEAc8LYQjIoQZIoQZIoQZIoQZTgn5UoRYFqLmKu6oJ+KIEGtC1FyJEKcQIcwQIcwQIcwQIcwQIcwQIcxwSshv+hf1+/1OzwMb1FwYhKi5ijuz+hdNT0/XbmTvdQKBgPacRoOQGTuEfGv8+lRJUe8Os8cAeaH8fr82B8Z5AfCNHULknouwXLZcXPyMQaPkklJzFXc+ZtAouaQ+skNIEYB/GDRLzEvN0RuwiZ8YNEzM60fY/MjrNQZNE9NSc5MLm3kNwC8MmidmtQDgVTjIewC+ADAFYNqjNQVgEMC7TooQBEEQBEEQBEFAFPwLmRZKD3K2VfEAAAAASUVORK5CYII="/>
+                                    </defs>
+                                </svg>
+
+                                <a href="">Veja meus eventos</a>
+                            </div><!--menu__wrapper__grupo-->
+
+                            <div class="menu__wrapper__grupo">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="100" height="100" fill="url(#pattern0_69_19)"/>
+                                    <defs>
+                                    <pattern id="pattern0_69_19" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_69_19" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_69_19" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkUlEQVR4nO2dS6hVVRyHjxpYwS3BKM00FdPiQo9rkY3EqIklOlJ6mSISDSI5N0kcxCUapD2MCEQdRKUGCuKLCMOBIiWVgSQ0irKugZI9tOiB9cWKdfFwOXudtfdZe+3H+X1wpv/9X+s7e++117PREEIIIYQQQgghhBCiRwHGAncDjwFN4Pma/Zq2bHNNWRtlBZgEvAH8QO9wBtgE3NAoC8AYYC3wG73LRWDQ1EXRMq4E3i+6NkrETlMnRd4ZO4qugRKyu5A7xT6mRHsGY8u4HriQkIzg/3fKpJhCTGtKuHk95ndGLzVtu2kS5/8uAe7JnGLvMTeGkEepHn8UdN1HYgh5jurwCnCdfczeC5ysXWsLGKIavNsm95uAXyPmMCQhl3kwIf99xENCWuhPyH8D8ZAQDyHPEg8J8RCykHhIiIeQqyIOFUhIJyG2DKabPAYS4ilkNvA3+SMhPkJsOV4lfyQkhZBxwAfki4T4CrFluRb4kPyQkDRCWu6Ul4A/CY+EpBXSUq6bgS3AOcIhIVmFjLpj5gGP23kDbwM/kg0J6VaIYxLgKdIjIR5f6rdkLPcDpEdCPIS8BewBJqYs9zWkR0I8hYxMQngKGO9Z7jtJj4SkEEKLGPPynuUosxkC3k96aivkHHACOAp8ApwNKKSVr4GtdtnBk7arfgVwLGPetRHyC7ANWNLuWW//saZZ+ntgIaGpvJBh4BkzZuGZyzpHLAnpgn/t9NS+lLnc5ogpIRkxk7YfzpjLHY64EpKB891MtwTedMSWkJSYF/K8LroyXraPuiQkJCUrPK51o522cwg4bbvIL3nGl5AU7OlwjT5gY5eTpCXEE/Mvn+aIPwP4MkBlSIgnWxyxJwPfB6oMCfHkdsfA0HHCISEenHLEXUVYJMSDTY41798SFgnJusQrp3WL/RLSmbZf5ba7OzQS4sH0iJXULyGdabu7AbCd8MxOuNZm4lF6ITMTYpo9p0LTtisfeI94lF7IfZGWmZ135P8R8Si9kJUJMecQlh2O/L8jHqUXss0R94uAFbEo4RrTiEvphZxO2pAFeChQJXzsuMZq4lJ6IYb5jti7Agx63eWIf4S4VEJI4lgIcDXwWca4ZuBqmSP2QIcRxp4V8o+pnA6DU3szzONa2CHvg8SnEkKw3ezjHNcYayfCfeMh16zfmNoh58UUQ2WEGF70uNYVwP1muzzgAPCpnU5qdkN9GpjiEWNK4FVRtRVinufLc861D/ic4qiUEMNfwNKc8pxQQKuq8kJG3gPrQ25sD9yacQlaaCopZITDpguly9zMO2eN3Te3DFRayMgjbGtaMXYP+uXAV5SLoTptgnkceAFYMPo4CLMMzQxAAU8A7wA/U04G67xN7CXgp4odixFlm1htpFyyjZTHBJxdWGeGox1bkdOQa914LYqMluMqYm5IXDUuRj+Xyp65JNqzJqoMK0RHHrVnV2GHg9kPMkm5zPbCDgUbdac0S9RdUQQXCnlMuTAvMTtuYZp7vcKwaU2ZRk6jrNg7ZsB+0Tftatk6/Zq2bAOFHyQphBBCCCGEEEIIIUSjOP4D1BCuiN3bRoQAAAAASUVORK5CYII="/>
+                                    </defs>
+                                </svg>
+                                
+                                <a href="">Videos curtos no tiktok</a>
+                            </div><!--menu__wrapper__grupo-->
+
+                            <div class="menu__wrapper__grupo">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="100" height="100" fill="url(#pattern0_69_20)"/>
+                                    <defs>
+                                    <pattern id="pattern0_69_20" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_69_20" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_69_20" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEQklEQVR4nO3dW4hVVRzH8WVqaEIPWUGWD13oRnSDbhQSkYGB+RCEBWFBl4fKXsqiiw/1UgZRdAGLCqGbWG81EkF0wcpoDOyGpT2oUFN0cSLKbPrGwr+0Z+aUM3utPf+91/l94DwdZs7/f35nZu2z19prhyAiIiIiIiIiIiIiIiIiMiWAg4GTgAuBK4AbgNuB+4FHgGeBV4A3gY+AzcC2ymMI+MkePzPa7spz8bG98nNbgY+B94DXgZeA1cADwN3ALcAyYDFwFjAPmBG6DjgEuMDe6IeBtfYmfA38RreMAN8Cm4DXgKeBO4DLgGOB6aFNgAOBRfbJfss+vf3kd+AT4AXgeuAIryDmAPfap0f+9SfwInD8VIZxEbCzUoSM94eNS9OaDuM6YE+PAqS3eHAys6kwLrdBTibn+SbCmGeHkVLPstyBPF6zENnrO2B2rjBmd/D7Q7l/JcBC704K8XKuQO707qQQ23MF8ox3JwWZmyOQd727KMiCHIHo9Eg+N+c4wvo7Y0H97snUQI7z7qAwb6QGssC7g8JsSw3kSucGLgY+pRx/xTmklEBu86w+7K1hhs0+fk8Z6s+VAKs8Kw/jp4YfLeD0/yUpgTzlWXnoXdMJtkihq65JCWSdZ+Xh/2uL48tndM9dKYHEpThuwv7rmwnc2mM5UJs9lhJIXMfkJky8zn3jSzyKabtXUwL5yrPyMPl6T7PlSG32fkogceWfm1C/7sW2UrGNtqQEEqce3YQElfFlF+0ylNLUj10NZB/g0JaNL7tDXcCwZ+UhI+AM4B3aYU7dJuIKvCICGTO+fOPZF3BkqMN7YVxodpG45/hySt3CSw9k2Km1U+sWrn9ZzTimbvElDepntmhQP7xuEzrsbcZBnVxxEsr8YjhS+7oRnTppxHBIaGwLjkKZJxd3pgTyoWflYeJ1zm3hOPFfBlMCWe9ZeZj4OPEL3bE+JZB4ua+bsP8p3M/pnjWdvXIq9K7pxI4vcngoJZD7PCsP48eJJwpYBrQiJZCbPCsPoxfK/UAZlobE43lPi4AvKcvZKYGc7l19gepfRWXLaySfXbXDqITya8aC+t2mHIEMendRkHU5Alnj3UVBHswRyArvLgpyY45ALvXuoiALcwQSvyFrW6Z08T08LDkQC+WDDAX1u41ZwrBAlnp3U4CrcwYy3bZ6lXoGs2/1Bxzdh9vA5hAnz07OGsaYc1uulyh0TLzU7vxGwqiEchTwtnenHbAx7n7daBiVUKYBV9m+7DLaF8C1wAFTEkaPcM6xmcUB2/S+n76zjFjPA/YenNv45smTBcyy9VHxzgcrgees4M0dPSgYstoHrJeV1lvscVboOrsUYD5wHrAk7mwALAfusa08VtsdFeISpA12afbWym0ndoy5JUV1jn3PmOd29LhdxQb73WvttVbZay+3WpZYbfOTNooREREREREREREREREREQl1/AOYVM1ng+cx6wAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                </svg>
+
+                                <a href="">Videos longos do youtube</a>
+                            </div><!--menu__wrapper__grupo-->
+                            
+                            <div class="menu__wrapper__grupo">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="40" height="40" fill="url(#pattern0_60_3)"/>
+                                    <defs>
+                                    <pattern id="pattern0_60_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_60_3" transform="scale(0.01)"/>
+                                    </pattern>
+                                    <image id="image0_60_3" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACQElEQVR4nO3cv2oUURxH8TVoYRXbVBa2YoKVkDIE8QFstbSJq4XEJ7Cy0zxDitSWutjZWojYKFgoaMBCRGLjkYEtROcv3CHf3T0fmHLu7O8eZmGLvZPJQMBZ4BHwFdX5DXwA7gFrk7EBh7UfQ3UOxo5xtfaxantbNscMcqfx0WqyN2aQ/cbHqsm+QbIYJMypBpkBRyt2zZKDbE9WDLBtkCAGCbNQQYAp8HDJrukiBzlm+RwbJItBwhgkjEHCGCSMQcIYJIxBwhgkjEHCGCSMQcIYJIxBwhgkjEHCGCSMQcIYJIxBwhgkjEHCGCSMQcIYJIxBwhgkjEHCGCSMQcIYJIxBwhgkjEEK+w48BnaAK8D16pAY4GfP+w1S0Ctgo2G2S8CbHmsYpJB3wHrHfBvAp451DFLIjZ4z3u5YxyAFfO57uhtwHvjRspZBCng+cM7XLWsZpICXA+d827KWQQr4BpzrOeMF4FfLWgYp5FbPGR90rGOQQr4AFzvmuzz/4djGIAV9BK41zLbb8yxig4xwdOuz6rRQ4CZwH3gx4H6DhDFIGIOEMUgYg4QxSBiDhDFIGIOEMUgYg4QxSBiDhDFIGIOEMUgYg4QxSBiDhDFIGIOEMUgYg4QxSBiDhDFIGIOEMUgYg4QxSBiDhDFIGIOEMUiYhQoyA47+uk5YPif/zFjNHBtE/zNIGIOsUpC7pz3dAtobM8jW/H/e6qfaq83RgsyjPO35YQRPRo0xD7IGTIH3vi3Uqfak2pvq6/3M0A3+Ax3SYlkCAcM6AAAAAElFTkSuQmCC"/>
+                                    </defs>
+                                </svg>
+
+                                <a [routerLink]="['/iniciar-sessao']">Sair</a>
+                            </div><!--menu__wrapper__grupo-->
+                        }
+                    </nav>
+                </div><!--menu__wrapper-->
+            }
+        </menu>
+    </div><!--menu-->
+</div><!--header__container-->

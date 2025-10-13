@@ -1,0 +1,33 @@
+<div class="iniciar__sessao__container">
+    <main>
+        <header>
+            <img src="/logo.png" alt="Imagem da logo">
+        </header>
+
+        <h2>Inicie já sua sessão</h2>
+
+        <form method="post">
+            <div class="iniciar__sessao__campo">
+                <label>Email</label>
+
+                <input type="email" required maxlength="64">
+            </div><!--iniciar__sessao__campo-->
+            
+            <div class="iniciar__sessao__campo">
+                <label>Senha</label>
+
+                <input type="password" required maxlength="32">
+            </div><!--iniciar__sessao__campo-->
+
+            <button type="submit">ENTRAR</button>
+        </form>
+
+        <p><a href="">Esqueci a senha</a></p>
+
+        <p>Não tem conta? Clique <a [routerLink]="['/cadastro']">aqui</a></p>
+    </main>
+
+    <aside>
+        <img src="/login-2.jpg" alt="Imagem de lado do cadastro">
+    </aside>
+</div><!--iniciar__sessao__container-->
