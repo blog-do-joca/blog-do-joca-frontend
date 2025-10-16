@@ -1,1 +1,147 @@
-<p>criar-artigo works!</p>
+<div class="criar__artigo__container">
+    <header>
+        <app-header></app-header>
+    </header>
+
+    <main>
+        <div class="criar__artigo__acoes">
+            <button type="button" (click)="mostrarCriarArtigo()">Criar Artigo</button>
+            <button type="button" (click)="mostrarPreVisualizacao()">Pré-visualização</button>
+        </div><!--criar__artigo__acoes-->
+
+        <section class="criar__artigo__wrapper" *ngIf="mostrarTemplateCriarArtigo">
+            <form action="" method="post">
+                <div class="criar__artigo__escolha__tag">
+                    <label>Nome da tag</label>
+                    
+                    <select id="" name="nomeTag" [(ngModel)]="nomeTag">
+                        <option value="">Selecione alguma opção</option>
+                        <option value="h1">h1</option>
+                        <option value="h2">h2</option>
+                        <option value="h3">h3</option>
+                        <option value="h4">h4</option>
+                        <option value="a">a</option>
+                        <option value="img">img</option>
+                        <option value="p">p</option>
+                    </select>
+                </div><!--criar__artigo__escolha__tag-->
+
+                <div class="criar__artigo__escolha__posicao">
+                    <label>N° da posição</label>
+
+                    <select id="" name="posicaoTag" [(ngModel)]="posicaoTag">
+                        <option value="">Selecione alguma opção</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <!--<option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>-->
+                    </select>
+                </div><!--criar__artigo__escolha__posicao-->
+
+                <div class="criar__artigo__escolha__conteudo">
+                    <label>Conteúdo tag</label>
+
+                    @if (nomeTag === "") {
+                        <p>Escolha o nome da tag primeiro!</p>
+                    }
+
+                    @if (
+                        nomeTag === "h1" ||
+                        nomeTag === "h2" ||
+                        nomeTag === "h3" ||
+                        nomeTag === "h4" ||
+                        nomeTag === "p"
+                    ) {
+                        <input type="text" placeholder="Escreva o conteúdo aqui..." [(ngModel)]="conteudoTag">
+                    }
+
+                    @if (nomeTag === "a") {
+                        <a [href]="conteudoLink">{{ conteudoTag }}</a>
+                        <input type="text" placeholder="Link aqui" [(ngModel)]="conteudoLink">
+                        <input type="text" placeholder="Conteúdo do link" [(ngModel)]="conteudoTag">
+                    }
+
+                    @if (nomeTag === "img") {
+                        <img [src]="conteudoTag" [alt]="conteudoImg">
+                        <input type="file" name="" id="" [(ngModel)]="conteudoTag">
+                        <input type="text" placeholder="Conteúdo alt e title" [(ngModel)]="conteudoImg">
+                    }
+                </div><!--criar__artigo__escolha__conteudo-->
+
+                <div class="criar__artigo__form__acoes">
+                    <button type="button" (click)="aplicarTagNoArray()">Aplicar</button>
+                    <button type="submit">Criar</button>
+                    <!--<button type="button">Criar</button>-->
+                </div><!--criar__artigo__form__acoes-->
+            </form>
+        </section><!--criar__artigo__wrapper-->
+
+        <section class="pre__visualizacao__wrapper" *ngIf="!mostrarTemplateCriarArtigo">
+            <div class="mostrar__pre__visualizacao">
+                <div class="header__mostrar__pre__visualizacao">
+                    <p>logo</p>
+                    <p>Buscador</p>
+                    <p>menu</p>
+                </div><!--header__mostrar__pre__visualizacao-->
+
+                <div class="main__mostrar__pre__visualizacao">
+                    @for (tag of tagsArray; track $index) {
+                        @if (tag.nomeTag === "h1") {
+                            <h1>{{ tag.conteudoTag }}</h1>
+                        }
+
+                        @if (tag.nomeTag === "h2") {
+                            <h2>{{ tag.conteudoTag }}</h2>
+                        }
+
+                        @if (tag.nomeTag === "h3") {
+                            <h3>{{ tag.conteudoTag }}</h3>
+                        }
+
+                        @if (tag.nomeTag === "h4") {
+                            <h4>{{ tag.conteudoTag }}</h4>
+                        }
+
+                        @if (tag.nomeTag === "a") {
+                            <a [href]="tag.conteudoLink">{{ tag.conteudoTag }}</a>
+                        }
+
+                        @if (tag.nomeTag === "img") {
+                            <img [src]="tag.conteudoTag" [alt]="tag.conteudoImg">
+                        }
+
+                        @if (tag.nomeTag === "p") {
+                            <p>{{ tag.conteudoTag }}</p>
+                        }
+                    }
+                </div><!--main__mostrar__pre__visualizacao-->
+            </div><!--mostrar__pre__visualizacao-->
+        </section><!--pre__visualizacao__wrapper-->
+    </main>
+</div><!--criar__artigo__container-->
