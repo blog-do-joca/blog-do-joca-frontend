@@ -5,6 +5,8 @@ import { Registro } from './pages/registro/registro';
 import { TodosComFiltro } from './pages/todos-com-filtro/todos-com-filtro';
 import { Favoritos } from './pages/favoritos/favoritos';
 import { MeuPerfil } from './pages/meu-perfil/meu-perfil';
+import { CriarArtigo } from './pages/criar-artigo/criar-artigo';
+import { Artigo } from './pages/artigo/artigo';
 
 export const routes: Routes = [
     {
@@ -34,6 +36,14 @@ export const routes: Routes = [
     {
         path: 'meu-perfil',
         component: MeuPerfil //dá para por o uuid do user
+    },
+    {
+        path: 'criar-artigo',
+        component: CriarArtigo
+    },
+    {
+        path: 'artigo/:id',
+        component: Artigo
     },
     {
         path: '**',
