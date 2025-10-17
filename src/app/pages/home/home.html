@@ -1,10 +1,12 @@
-<div class="home__container">
+<div class="home__container" (scroll)="verificarScroll()">
     <header>
         <app-header></app-header>
     </header>
 
     <main>
-        <div class="banner"></div><!--banner-->
+        <div class="banner">
+            <img src="/banner1.png" alt="Banner Curso Git init ao push">
+        </div><!--banner-->
 
         <div class="main__wrapper">
             <aside class="artigos">
