@@ -1,1 +1,2 @@
-Colocar o pesquisar no menu quando resolução for menor que 480px
+### Problemas
+- #### Ver porquê header não está funcionando como deveria em 'meu perfil' e 'favoritos'
