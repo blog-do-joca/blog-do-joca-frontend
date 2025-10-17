@@ -29,6 +29,12 @@ export class Header {
     });
   }
 
+  redirecionarParaPesquisarTodos(tipoPesquisa: string){
+    this.router.navigate(['/todos-itens'], {
+      queryParams: { t: tipoPesquisa }
+    });
+  }
+
   transformarMenu(){
     const linha1 = document.getElementById('linha__1');
     const linha2 = document.getElementById('linha__2');
@@ -53,9 +59,9 @@ export class Header {
     linha1.style.top = '0px';
     linha1.style.right = '0px';
     linha1.style.zIndex = '999';
-    linha1.style.backgroundColor = '#000';
+    linha1.style.backgroundColor = '#fff';
     linha2.style.display = 'flex';
-    linha2.style.backgroundColor = '#000';
+    linha2.style.backgroundColor = '#fff';
     linha2.style.zIndex = '999';
     linha3.style.rotate = '0deg';
     linha3.style.bottom = '0px';
@@ -64,7 +70,7 @@ export class Header {
     linha3.style.top = '0px';
     linha3.style.right = '0px';
     linha3.style.zIndex = '999';
-    linha3.style.backgroundColor = '#000';
+    linha3.style.backgroundColor = '#fff';
   }
 
   mudarParaFechado(linha1: HTMLElement, linha2: HTMLElement, linha3: HTMLElement){
