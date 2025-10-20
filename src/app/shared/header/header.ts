@@ -48,7 +48,7 @@ export class Header {
       }
     }else{
       if(linha1 && linha2 && linha3){
-        this.mudarParaAberto(linha1, linha2, linha3);    
+        this.mudarParaAberto(linha1, linha2, linha3);
       }
     }
   }
