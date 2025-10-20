@@ -22,6 +22,7 @@ export class Home{
   @HostListener('window:scroll', [])
   verificarScroll(){
     const headerContainer = document.getElementById('header-container');
+    const menuWrapper = document.getElementById('menu-wrapper');
 
     const posicaoScroll = window.scrollY | document.documentElement.scrollTop;
     if(posicaoScroll > 40){
@@ -32,6 +33,11 @@ export class Home{
         headerContainer.style.borderBottomLeftRadius = '10px';
         headerContainer.style.borderBottomRightRadius = '10px';
       }
+
+      if(menuWrapper){
+        menuWrapper.style.left = '-10%';
+        menuWrapper.style.width = '120dvw';
+      }
     } else{
       if(headerContainer){
         headerContainer.style.width = '100%';
@@ -39,6 +45,11 @@ export class Home{
         headerContainer.style.transform = 'translateX(0)';
         headerContainer.style.borderBottomLeftRadius = '0px';
         headerContainer.style.borderBottomRightRadius = '0px';
+      }
+
+      if(menuWrapper){
+        menuWrapper.style.left = '0%';
+        menuWrapper.style.width = '100dvw';
       }
     }
   }
