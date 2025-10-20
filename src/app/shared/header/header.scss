@@ -97,8 +97,8 @@
 .menu__wrapper{
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100dvw;
+    left: -10%;
+    width: 120dvw;
     height: 100dvh;
     background-color: rgba(0,0,0,0.7);
     z-index: 900;
@@ -171,7 +171,7 @@
     }
 }
 
-@media (width < 800px) {
+@media (width < 870px) {
     .logo > a > img{
         width: 139px;
         height: 68px;
@@ -183,13 +183,13 @@
     }
 }
 
-@media (width < 760px) {
+@media (width < 800px) {
     .buscador > input{
         width: 270px;
     }
 }
 
-@media (width < 620px) {
+@media (width < 670px) {
     .logo > a > img{
         width: 100px;
         height: 48px;
@@ -243,7 +243,11 @@
     }
 }
 
-@media (width < 470px) {
+@media (width < 580px) {
+    .header__container{
+        padding: 20px 35px;
+    }
+
     .logo > a > img{
         width: 100px;
         height: 48px;
@@ -293,7 +297,11 @@
     }
 }
 
-@media (width < 360px) {
+@media (width < 380px) {
+    .header__container{
+        padding: 20px 30px;
+    }
+
     .menu__wrapper > nav > .menu__wrapper__grupo > svg{
         width: 22px;
         height: 22px;
@@ -305,6 +313,10 @@
 }
 
 @media (width < 300px){
+    .header__container{
+        padding: 20px 25px;
+    }
+
     .menu__wrapper > nav > .menu__wrapper__grupo > svg{
         width: 19px;
         height: 19px;
