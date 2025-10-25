@@ -369,6 +369,14 @@ footer{
     aside > nav > a{
         font-size: 16px;
     }
+
+    /*banner*/
+    .banner > img{
+        width: 100%;
+        height: auto;
+        left: 0%;
+        transform: translateX(0%);
+    }
 }
 
 @media (width < 1500px) {
@@ -654,6 +662,11 @@ footer{
 @media (width < 620px) {
     main,header,footer{
         padding: 20px;
+    }
+
+    /*banner*/
+    .banner > img{
+        margin-top: 100px;
     }
 
     /*artigos*/
