@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Header } from '../../shared/header/header';
 import { FormsModule } from "@angular/forms";
-import { Tag } from '../../interfaces/tag.interface';
+import { BlocoArtigo } from '../../interfaces/bloco-artigo.interface';
+import { Artigos } from '../../services/artigos';
 
 @Component({
   selector: 'app-criar-artigo',
@@ -17,18 +18,21 @@ import { Tag } from '../../interfaces/tag.interface';
   styleUrl: './criar-artigo.scss'
 })
 export class CriarArtigo {
-  tagsArray: Tag[] = [];
+  articlesBlocks: BlocoArtigo[] = [];
+  artigosEmOrdem: BlocoArtigo[] = [];
 
-  nomeTag: string = "";
-  posicaoTag: string = "";
-  conteudoTag: string = "";
+  nomeBlocoArtigo: string = "";
+  ordem: number = 0;
+  conteudoBlocoArtigo: string = "";
   conteudoLink: string = "";
   conteudoImg: string = "";
 
   /*template*/
   mostrarTemplateCriarArtigo: boolean = true;
 
-  constructor(){}
+  constructor(
+    private readonly artigoService: Artigos
+  ){}
 
   mostrarCriarArtigo(){
     this.mostrarTemplateCriarArtigo = true;
@@ -38,23 +42,98 @@ export class CriarArtigo {
     this.mostrarTemplateCriarArtigo = false;
   }
 
-  aplicarTagNoArray(){
-    if(!this.posicaoTag || !this.nomeTag){
+  criarArtigo(){
+    this.tratamentoDeErros();
+
+    this.artigoService.criarArtigo(this.artigosEmOrdem).subscribe({
+      next: (res) => {
+        console.log(res);
+      }
+    });
+  }
+
+  aplicarBlocoArtigoNoArray(){
+    this.tratamentoDeErros();
+
+    const novoElemento = this.criarObjetoParaNovoElemento();
+
+    this.verificarSeElementoExisteNaPosicao(novoElemento.ordem, novoElemento);
+    
+    this.limparCamposForms();
+    
+    this.colocarArtigosEmOrdemParaPreVisualizacao();
+  }
+
+  verificarSeElementoExisteNaPosicao(ordemElementoAtual: number, novoElemento: BlocoArtigo){
+    ordemElementoAtual = this.ordem;
+
+    const ordemJaExiste = this.articlesBlocks.some(
+      (bloco) => bloco.ordem == ordemElementoAtual
+    );
+
+    if(ordemJaExiste){
+      /**
+       * rebaixa a ordem atual como se ela fosse 'n' seria n + 1
+       * e coloca o elemento atual nessa ordem
+       */
+      this.articlesBlocks.forEach((bloco) => {
+        const ordemAtual = bloco.ordem;
+
+        if (ordemAtual >= ordemElementoAtual) { 
+          bloco.ordem = (ordemAtual + 1);
+        }
+      });
+
+      this.inserirNovoElementoNoArray(novoElemento);
+    }else{
+      this.inserirNovoElementoNoArray(novoElemento);
+    }
+
+    this.colocarArtigosEmOrdemParaPreVisualizacao();
+  }
+
+  inserirNovoElementoNoArray(novoElemento: BlocoArtigo){
+    this.articlesBlocks.push(novoElemento);
+  }
+
+  tratamentoDeErros(){
+    if(!this.ordem || !this.nomeBlocoArtigo || this.conteudoBlocoArtigo === ""){
       //criar callback de erro
       return;
     }
+  }
 
-    const novaTag: Tag = {
-      nomeTag: this.nomeTag,
-      posicaoTag: this.posicaoTag
+  criarObjetoParaNovoElemento(){
+    const novaBlocoArtigo: BlocoArtigo = {
+      nomeBlocoArtigo: this.nomeBlocoArtigo,
+      conteudoBlocoArtigo: this.conteudoBlocoArtigo,
+      conteudoLink: this.conteudoLink,
+      conteudoImg: this.conteudoImg,
+      ordem: this.ordem
     };
 
-    this.tagsArray.push(novaTag);
-    //this.tagsArray.set(2, 'p'); vai ser usado como um método para fazer a verificação chamando pelo ts a cada mudança de elemento
-    
-    this.nomeTag = "";
-    this.posicaoTag = "";
-
-    console.log(this.tagsArray);
+    return novaBlocoArtigo;
   }
+
+  limparCamposForms(){
+    this.nomeBlocoArtigo = "";
+    this.conteudoBlocoArtigo = "";
+    this.conteudoImg = "";
+    this.conteudoLink = "";
+  }
+
+  colocarArtigosEmOrdemParaPreVisualizacao(){
+    // Cria uma CÓPIA INDEPENDENTE (deep copy, ou shallow copy se os objetos são simples)
+    // Usando .map para garantir que o array seja clonado e o sort não mute o articlesBlocks
+    this.artigosEmOrdem = this.articlesBlocks.map(a => ({...a})); 
+
+    this.artigosEmOrdem.sort((a, b) => {
+      const ordemA = a.ordem;
+      const ordemB = b.ordem;
+
+      return ordemA - ordemB;
+    });
+  }
+
+
 }

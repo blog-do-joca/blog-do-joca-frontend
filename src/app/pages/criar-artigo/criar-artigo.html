@@ -10,11 +10,11 @@
         </div><!--criar__artigo__acoes-->
 
         <section class="criar__artigo__wrapper" *ngIf="mostrarTemplateCriarArtigo">
-            <form action="" method="post">
+            <form action="" method="post" (submit)="criarArtigo()">
                 <div class="criar__artigo__escolha__tag">
                     <label>Nome da tag</label>
                     
-                    <select id="" name="nomeTag" [(ngModel)]="nomeTag">
+                    <select id="" name="nomeBlocoArtigo" [(ngModel)]="nomeBlocoArtigo">
                         <option value="">Selecione alguma opção</option>
                         <option value="h1">h1</option>
                         <option value="h2">h2</option>
@@ -29,73 +29,57 @@
                 <div class="criar__artigo__escolha__posicao">
                     <label>N° da posição</label>
 
-                    <select id="" name="posicaoTag" [(ngModel)]="posicaoTag">
+                    <select id="" name="ordem" [(ngModel)]="ordem">
                         <option value="">Selecione alguma opção</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <!--<option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>-->
+                        @if (articlesBlocks.length === 0) {
+                            <option value="1">Primeiro bloco</option>
+                        }@else{
+                            @for (artigosPosicao of artigosEmOrdem; track $index) {
+                                @if (artigosPosicao.ordem === 1) {
+                                    <option [value]="artigosPosicao.ordem">Atual: {{ artigosPosicao.nomeBlocoArtigo }} - {{ artigosPosicao.conteudoBlocoArtigo }}</option>
+                                    <option [value]="artigosPosicao.ordem + 1">Depois de: {{ artigosPosicao.nomeBlocoArtigo }} - {{ artigosPosicao.conteudoBlocoArtigo }}</option>
+                                }@else {
+                                    <option [value]="artigosPosicao.ordem - 1">Antes de: {{ artigosPosicao.nomeBlocoArtigo }} - {{ artigosPosicao.conteudoBlocoArtigo }}</option>
+                                    <option [value]="artigosPosicao.ordem">Atual: {{ artigosPosicao.nomeBlocoArtigo }} - {{ artigosPosicao.conteudoBlocoArtigo }}</option>
+                                    <option [value]="artigosPosicao.ordem + 1">Depois de: {{ artigosPosicao.nomeBlocoArtigo }} - {{ artigosPosicao.conteudoBlocoArtigo }}</option>
+                                }
+                            }
+                        }
                     </select>
                 </div><!--criar__artigo__escolha__posicao-->
 
                 <div class="criar__artigo__escolha__conteudo">
-                    <label>Conteúdo tag</label>
+                    <label>Conteúdo Tag HTML</label>
 
-                    @if (nomeTag === "") {
+                    @if (nomeBlocoArtigo === "") {
                         <p>Escolha o nome da tag primeiro!</p>
                     }
 
                     @if (
-                        nomeTag === "h1" ||
-                        nomeTag === "h2" ||
-                        nomeTag === "h3" ||
-                        nomeTag === "h4" ||
-                        nomeTag === "p"
+                        nomeBlocoArtigo === "h1" ||
+                        nomeBlocoArtigo === "h2" ||
+                        nomeBlocoArtigo === "h3" ||
+                        nomeBlocoArtigo === "h4" ||
+                        nomeBlocoArtigo === "p"
                     ) {
-                        <input type="text" placeholder="Escreva o conteúdo aqui..." [(ngModel)]="conteudoTag">
+                        <input type="text" placeholder="Escreva o conteúdo aqui..." [(ngModel)]="conteudoBlocoArtigo">
                     }
 
-                    @if (nomeTag === "a") {
-                        <a [href]="conteudoLink">{{ conteudoTag }}</a>
+                    @if (nomeBlocoArtigo === "a") {
+                        <a [href]="conteudoLink">{{ conteudoBlocoArtigo }}</a>
                         <input type="text" placeholder="Link aqui" [(ngModel)]="conteudoLink">
-                        <input type="text" placeholder="Conteúdo do link" [(ngModel)]="conteudoTag">
+                        <input type="text" placeholder="Conteúdo do link" [(ngModel)]="conteudoBlocoArtigo">
                     }
 
-                    @if (nomeTag === "img") {
-                        <img [src]="conteudoTag" [alt]="conteudoImg">
-                        <input type="file" name="" id="" [(ngModel)]="conteudoTag">
+                    @if (nomeBlocoArtigo === "img") {
+                        <img [src]="conteudoBlocoArtigo" [alt]="conteudoImg">
+                        <input type="file" name="" id="" [(ngModel)]="conteudoBlocoArtigo">
                         <input type="text" placeholder="Conteúdo alt e title" [(ngModel)]="conteudoImg">
                     }
                 </div><!--criar__artigo__escolha__conteudo-->
 
                 <div class="criar__artigo__form__acoes">
-                    <button type="button" (click)="aplicarTagNoArray()">Aplicar</button>
+                    <button type="button" (click)="aplicarBlocoArtigoNoArray()">Aplicar</button>
                     <button type="submit">Criar</button>
                     <!--<button type="button">Criar</button>-->
                 </div><!--criar__artigo__form__acoes-->
@@ -104,41 +88,37 @@
 
         <section class="pre__visualizacao__wrapper" *ngIf="!mostrarTemplateCriarArtigo">
             <div class="mostrar__pre__visualizacao">
-                <div class="header__mostrar__pre__visualizacao">
-                    <p>logo</p>
-                    <p>Buscador</p>
-                    <p>menu</p>
-                </div><!--header__mostrar__pre__visualizacao-->
-
                 <div class="main__mostrar__pre__visualizacao">
-                    @for (tag of tagsArray; track $index) {
-                        @if (tag.nomeTag === "h1") {
-                            <h1>{{ tag.conteudoTag }}</h1>
+                    @for (blocoArtigo of artigosEmOrdem; track $index) {
+                        @if (blocoArtigo.nomeBlocoArtigo === "h1") {
+                            <h1>{{ blocoArtigo.conteudoBlocoArtigo }}</h1>
                         }
 
-                        @if (tag.nomeTag === "h2") {
-                            <h2>{{ tag.conteudoTag }}</h2>
+                        @if (blocoArtigo.nomeBlocoArtigo === "h2") {
+                            <h2>{{ blocoArtigo.conteudoBlocoArtigo }}</h2>
                         }
 
-                        @if (tag.nomeTag === "h3") {
-                            <h3>{{ tag.conteudoTag }}</h3>
+                        @if (blocoArtigo.nomeBlocoArtigo === "h3") {
+                            <h3>{{ blocoArtigo.conteudoBlocoArtigo }}</h3>
                         }
 
-                        @if (tag.nomeTag === "h4") {
-                            <h4>{{ tag.conteudoTag }}</h4>
+                        @if (blocoArtigo.nomeBlocoArtigo === "h4") {
+                            <h4>{{ blocoArtigo.conteudoBlocoArtigo }}</h4>
                         }
 
-                        @if (tag.nomeTag === "a") {
-                            <a [href]="tag.conteudoLink">{{ tag.conteudoTag }}</a>
+                        @if (blocoArtigo.nomeBlocoArtigo === "a") {
+                            <a [href]="blocoArtigo.conteudoLink">{{ blocoArtigo.conteudoBlocoArtigo }}</a>
                         }
 
-                        @if (tag.nomeTag === "img") {
-                            <img [src]="tag.conteudoTag" [alt]="tag.conteudoImg">
+                        @if (blocoArtigo.nomeBlocoArtigo === "img") {
+                            <img [src]="blocoArtigo.conteudoImg" [alt]="blocoArtigo.conteudoBlocoArtigo">
                         }
 
-                        @if (tag.nomeTag === "p") {
-                            <p>{{ tag.conteudoTag }}</p>
+                        @if (blocoArtigo.nomeBlocoArtigo === "p") {
+                            <p>{{ blocoArtigo.conteudoBlocoArtigo }}</p>
                         }
+
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.5" d="M12.75 4C12.75 3.58579 12.4142 3.25 12 3.25C11.5858 3.25 11.25 3.58579 11.25 4L12.75 4ZM11.25 4L11.25 20H12.75L12.75 4L11.25 4Z" fill="#1C274C"></path> <path d="M18 14L12 20L6 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                     }
                 </div><!--main__mostrar__pre__visualizacao-->
             </div><!--mostrar__pre__visualizacao-->
