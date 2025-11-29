@@ -7,6 +7,7 @@ import { Favoritos } from './pages/favoritos/favoritos';
 import { MeuPerfil } from './pages/meu-perfil/meu-perfil';
 import { CriarArtigo } from './pages/criar-artigo/criar-artigo';
 import { Artigo } from './pages/artigo/artigo';
+import { Noticias } from './pages/noticias/noticias';
 
 export const routes: Routes = [
     {
@@ -44,6 +45,10 @@ export const routes: Routes = [
     {
         path: 'artigo/:id',
         component: Artigo
+    },
+    {
+        path: "noticias",
+        component: Noticias
     },
     {
         path: '**',
