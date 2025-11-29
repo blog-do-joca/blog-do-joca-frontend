@@ -1,0 +1,17 @@
+$bg__color: #f5f5f5;
+$bg__noticias: #e7dfdf;
+
+.noticias__container{
+    width: 100dvw;
+    height: auto;
+    min-height: 100dvh;
+    background-color: $bg__color;
+
+    .noticias__caixa{
+        margin: 0 auto;
+        max-width: 1000px;
+        height: auto;
+        min-height: 100dvh;
+        background-color: $bg__noticias;
+    }
+}
