@@ -26,22 +26,38 @@
                     <h3>Tipo</h3>
 
                     <div class="filtro__tipo__unico">
-                        <input type="checkbox" id="">
+                        <input type="checkbox" 
+                        id="tiktok"
+                        (click)="toggleFiltro('tiktok')"
+                        [checked]="estaAtivo('tiktok')"
+                        />
                         <label>Tiktok</label>
                     </div><!--filtro__tipo__unico-->
 
                     <div class="filtro__tipo__unico">
-                        <input type="checkbox" id="">
+                        <input type="checkbox"
+                        id="youtube"
+                        (click)="toggleFiltro('youtube')"
+                        [checked]="estaAtivo('youtube')"
+                        />
                         <label>Youtube</label>
                     </div><!--filtro__tipo__unico-->
 
                     <div class="filtro__tipo__unico">
-                        <input type="checkbox" id="">
+                        <input type="checkbox"
+                        id="eventos"
+                        (click)="toggleFiltro('eventos')"
+                        [checked]="estaAtivo('eventos')"
+                        />
                         <label>Eventos</label>
                     </div><!--filtro__tipo__unico-->
 
                     <div class="filtro__tipo__unico">
-                        <input type="checkbox" id="">
+                        <input type="checkbox"
+                        id="artigos"
+                        (click)="toggleFiltro('artigos')"
+                        [checked]="estaAtivo('artigos')"
+                        />
                         <label>Artigos</label>
                     </div><!--filtro__tipo__unico-->
                 </div><!--filtro__tipo-->
