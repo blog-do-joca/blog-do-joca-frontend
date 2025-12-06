@@ -191,6 +191,18 @@ form > button:active{
     }
 }
 
+@media (width <= 870px){
+    main{
+        margin-top: 190px;
+    }
+}
+
+@media (width <= 670px){
+    main{
+        margin-top: 160px;
+    }
+}
+
 @media (width < 490px) {
     .perfil__container{
         padding: 40px;
